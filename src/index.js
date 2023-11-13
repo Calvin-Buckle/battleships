@@ -1,17 +1,13 @@
 import Ship from './factories/shipFactory'
 import Gameboard from './factories/gameBoardFactory'
-
+import shipList from './resources/ships'
 
 
 
 let game = new Gameboard;
-let ship = new Ship('destroyer',1)
+let carrierShip = shipList.Carrier
 
-
-ship.hit(3)
-
+carrierShip.hit(0)
 
 
 
-console.log(game)
-console.log(ship)

@@ -13,15 +13,11 @@ class Ship{
 
  isSunk(){
     
-
+  return this.position.every(position => this.hits.includes(position))
 
  }
  
- shipType(name){
-
-
- }
-
+ 
 
 }
 
