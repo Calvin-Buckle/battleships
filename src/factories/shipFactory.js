@@ -1,6 +1,6 @@
 class Ship{
-    constructor(name,position,size){
-        this.name = name
+    constructor(position,size){
+        
         this.position = position
         this.hits = []
         this.size = size
@@ -11,7 +11,32 @@ class Ship{
    
  }
 
+ isSunk(){
+    
+
+
+ }
+ 
+ shipType(name){
+
+
+ }
+
+
 }
+
+
+
+
+
+
+
+
+class Player{
+ constructor(){}
+}
+
+
 
 
 
