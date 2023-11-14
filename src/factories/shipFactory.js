@@ -16,10 +16,11 @@ class Ship{
   return this.position.every(position => this.hits.includes(position))
 
  }
- 
- 
 
-}
+
+ isHit() {
+    return this.hits.some(hit => this.position.includes(hit));
+  }}
 
 
 
@@ -29,7 +30,10 @@ class Ship{
 
 
 class Player{
- constructor(){}
+ constructor(){
+    this.player = player;
+    this.enemy = enemy;
+ }
 }
 
 
