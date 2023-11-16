@@ -2,7 +2,7 @@ import Ship from "../factories/shipFactory";
 
 let shipList = {
 //Player ships~
-'Carrier' : new Ship([0,1,2,3,4],5),
+'Carrier' : new Ship([],5),
 
 'BattleShip' : new Ship([0,0,0,0],4),
 

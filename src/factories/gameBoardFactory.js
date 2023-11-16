@@ -1,48 +1,30 @@
 
 
-
 class Gameboard {
+  
   constructor() {
     this.board = this.generateDomBoard();
+    document.dispatchEvent(new Event('gameboardReady'))
     ;
   }
 
-
   generateDomBoard() {
-    let enemyBoard = document.getElementById('enemyBoard')
-let playerBoard = document.getElementById('playerBoard')
-      for (let i = 0; i < 10; i++) {
-        for (let j = 0; j < 10; j++) {
-          const divEnemyPlayer = document.createElement('div');
-          const divPlayer = document.createElement('div');
-          divEnemyPlayer.id = `enemy(${i},${j})`;
-          divPlayer.id = `player(${i},${j})`;
-          playerBoard.appendChild(divPlayer);
-         enemyBoard.appendChild(divEnemyPlayer);  
-
-           divPlayer.addEventListener('click', this.placeShip)
-           divEnemyPlayer.addEventListener('click', this.attack)
-
-        }
-      }
+   let playerBoard = document.getElementById('playerBoard');
+   let enemyBoard = document.getElementById('enemyBoard');  
+   
+   for(let i = 0; i < 10; i++){
+    for(let j = 0; j < 10; j++){
+      let div = document.createElement('div')
+      let enemyDiv = document.createElement('div')
+    playerBoard.appendChild(div)
+    enemyBoard.appendChild(enemyDiv)
+    div.classList = 'block'
+    enemyDiv.classList= 'block'
     }
-  
-  
+   }
 
 
- attack(event) {
-    // Do something when a div is clicked
-    console.log('Div clicked:', event.target.id);
-  }
- 
-  placeShip(){
-
-  }
- 
-
-
-
-
+}
 }
 
 
