@@ -19,6 +19,7 @@ table { border-collapse: collapse; border-spacing: 0;}
   
     display: grid;
     grid-template-areas: 
+    "left top topRight"
     "left middle right";
     grid-template-columns: 1fr 3fr 3fr;
     height: 100vh; 
@@ -104,5 +105,9 @@ table { border-collapse: collapse; border-spacing: 0;}
 }
 
 
-
-
+#buttonContainer{
+    display: flex;
+    grid-area: top;
+    justify-content: center;
+    align-items: center;
+}

@@ -11,6 +11,7 @@ document.addEventListener('gameboardReady', () => {
 
     ship.forEach(ship => {
         ship.addEventListener('dragstart', () => {
+            
             console.log('dragging');
         });
     });
@@ -18,6 +19,7 @@ document.addEventListener('gameboardReady', () => {
     document.addEventListener('dragstart', (e) => {
         shipId = e.target.getAttribute('Id');
     });
+
 
     block.forEach(block => {
         block.addEventListener('dragover', (e) => {

@@ -19,7 +19,7 @@ class Gameboard {
     playerBoard.appendChild(div)
     enemyBoard.appendChild(enemyDiv)
     div.classList = 'block'
-    enemyDiv.classList= 'block'
+    enemyDiv.classList= 'eBlock'
     }
    }
 

@@ -1,7 +1,7 @@
 class Ship{
-    constructor(position,size){
+    constructor(size){
         
-        this.position = position
+        
         this.hits = []
         this.size = size
     }
