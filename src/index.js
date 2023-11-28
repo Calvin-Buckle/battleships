@@ -6,6 +6,6 @@ import aiPlacement from './logic/ai';
  
 let game = new Gameboard
 
-console.log(shipList)
+
 
 let carrierShip = shipList.Carrier

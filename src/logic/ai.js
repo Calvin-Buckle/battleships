@@ -45,28 +45,38 @@ function randomLoc(){
     return location
 }
 
-    let EnemyCarrier = 'EnemyCarrier'
-    let EnemyBattleShip = 'EnemyBattleShip'
-    let EnemySubmarine = 'EnemySubmarine'
-    let EnemyDestroyer = 'EnemyDestroyer'
+    let EnemyCarrier = 'EnemyCarrier';
+    let EnemyBattleShip = 'EnemyBattleShip';
+    let EnemyCruiser = 'EnemyCruiser';
+    let EnemySubmarine = 'EnemySubmarine';
+    let EnemyDestroyer = 'EnemyDestroyer';
 
 
 function aiPlacement(ship){
     let loc = randomLoc();
    let currentEBlock = enemyBoard.firstElementChild;
-    console.log('initialization',currentEBlock)
+   
     //run through the enemy board 
     for(let i = 0; i < loc; i++){
     currentEBlock = currentEBlock.nextElementSibling;
-    console.log('loop',currentEBlock)
     }
-    currentEBlock.classList.add(ship)
+   
+    for(let j = 0; j < shipList[ship].size; j++){
+        currentEBlock.classList.add('selected')
+        currentEBlock.classList.add(ship)
+       
+        currentEBlock = currentEBlock.nextElementSibling
+        
+    }
     }
     
     
-
-
+ 
     aiPlacement(EnemyCarrier)
+    aiPlacement(EnemyBattleShip)
+    aiPlacement(EnemyCruiser)
+    aiPlacement(EnemySubmarine)
+    aiPlacement(EnemyDestroyer)
 });
 export default aiPlacement
 
