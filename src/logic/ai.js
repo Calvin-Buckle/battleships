@@ -7,6 +7,7 @@ document.addEventListener('gameboardReady', () => {
 
 
     let start = document.getElementById('start');
+    let reset = document.getElementById('reset')
     let enemyBoard = document.getElementById('enemyBoard');
     let EnemyCarrier = 'EnemyCarrier';
     let EnemyBattleShip = 'EnemyBattleShip';
@@ -152,7 +153,7 @@ function aiHorizontalPlacement(ship){
         return isValid;
     }
     
-
+    
 
     function placeShips(ship){
         if(randomAxis() === 'horizontal'){
@@ -164,7 +165,11 @@ function aiHorizontalPlacement(ship){
     
     }
 
-    document.addEventListener('click', () => {
+
+   //reset the game
+
+   //start the game
+    start.addEventListener('click', () => {
     placeShips(EnemyCarrier)
     setTimeout(placeShips(EnemyBattleShip),10)
     setTimeout(placeShips(EnemyCruiser),10)
