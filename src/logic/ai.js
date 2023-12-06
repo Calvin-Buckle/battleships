@@ -123,8 +123,9 @@ function aiHorizontalPlacement(ship){
         for (let i = 0; i < shipList[ship].size; i++) {
             if (currentEBlock.classList.contains('selected')) {
                 isValid = false;
-                  break; // Break out of the loop if a spot is selected
-              }
+                break; // Break out of the loop if a spot is selected
+            }
+    
             let current = Array.from(currentEBlock.classList);
             let nextBlock = currentEBlock.nextElementSibling;
     
@@ -136,16 +137,17 @@ function aiHorizontalPlacement(ship){
                     isValid = false;
                     break; // Break the loop if a mismatch is found
                 }
-                
+    
                 currentEBlock = nextBlock; // Move to the next block
             } else {
                 isValid = false; // There's no next block, so it's not a valid move
+                break; // Break the loop if there are not enough blocks for the ship
             }
         }
     
         return isValid;
     }
-
+    
 
 
     function placeShips(ship){
