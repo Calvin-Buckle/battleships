@@ -90,61 +90,64 @@ function aiVerticalPlacement(ship){
 function aiHorizontalPlacement(ship){
     let loc = randomLoc();
    let currentEBlock = enemyBoard.firstElementChild;
-   let prevSteps = 0;
+   
+
 
     //run through the enemy board 
     for(let i = 0; i < loc; i++){
     currentEBlock = currentEBlock.nextElementSibling;
     }
+    //check if a move is valid
+    let isValid = horValidMove(ship, currentEBlock)
 
-    //this loops and checks if a spot is selected
+    if(isValid){
     for(let j = 0; j < shipList[ship].size; j++){
-        if(currentEBlock.classList.contains('selected')){
-            cleanPrev(currentEBlock,ship,prevSteps)
-          return;
-        }else{
+      
 //this places the ship
-        prevSteps++
+      
         currentEBlock.classList.add('selected')
         currentEBlock.classList.add(ship)  
-    //this checks if the board isnt ending
-        if(currentEBlock.nextElementSibling){
-         currentEBlock = currentEBlock.nextElementSibling;
-        }else{
-            cleanShips(currentEBlock,ship,prevSteps)
-           return;
+        currentEBlock = currentEBlock.nextElementSibling;
+       
+    }
+
+    }else{
+        aiHorizontalPlacement(ship)
+}
+    }
+
+
+    function horValidMove(ship, currentEBlock, classList) {
+        let isValid = true;
+    
+        for (let i = 0; i < shipList[ship].size; i++) {
+            if (currentEBlock.classList.contains('selected')) {
+                isValid = false;
+                  break; // Break out of the loop if a spot is selected
+              }
+            let current = Array.from(currentEBlock.classList);
+            let nextBlock = currentEBlock.nextElementSibling;
+    
+            if (nextBlock) {
+                let next = Array.from(nextBlock.classList);
+    
+                // Check if the class at the same index is the same in both current and next class lists
+                if (current[i] !== next[i]) {
+                    isValid = false;
+                    break; // Break the loop if a mismatch is found
+                }
+                
+                currentEBlock = nextBlock; // Move to the next block
+            } else {
+                isValid = false; // There's no next block, so it's not a valid move
+            }
         }
-    }
-    }
-    }
-
-
-
-
-
-    //cleanUp Functions
-    function cleanPrev(currentEBlock,ship,prevSteps){
-        for(let i = 0; i < prevSteps; i++){
-            currentEBlock = currentEBlock.previousElementSibling;
-            currentEBlock.classList.remove(ship)
-            currentEBlock.classList.remove('selected')
-        }
-        
-        
-        return prevSteps = 0, aiHorizontalPlacement(ship);
-
+    
+        return isValid;
     }
 
 
-    function cleanShips(currentEBlock,ship,prevSteps){
-        for(let i = 0; i < prevSteps; i++){
-            currentEBlock.classList.remove(ship)
-            currentEBlock.classList.remove('selected')
-            currentEBlock = currentEBlock.previousElementSibling;
-          
-        }
-        return prevSteps = 0, aiHorizontalPlacement(ship);
-    }
+
     function placeShips(ship){
         if(randomAxis() === 'horizontal'){
             aiHorizontalPlacement(ship)
@@ -156,10 +159,10 @@ function aiHorizontalPlacement(ship){
     }
    
     placeShips(EnemyCarrier)
-   /* setTimeout(placeShips(EnemyBattleShip),10)
+    setTimeout(placeShips(EnemyBattleShip),10)
     setTimeout(placeShips(EnemyCruiser),10)
     setTimeout(placeShips(EnemySubmarine),10)
-    setTimeout(placeShips(EnemyDestroyer),10)*/
+    setTimeout(placeShips(EnemyDestroyer),10)
 });
 export default placeShips
 
