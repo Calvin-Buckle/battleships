@@ -1,8 +1,12 @@
 
 import shipList from "../resources/ships";
+
 //this only runs the code once the gameboard is created
 document.addEventListener('gameboardReady', () => {
 
+
+
+    let start = document.getElementById('start');
     let enemyBoard = document.getElementById('enemyBoard');
     let EnemyCarrier = 'EnemyCarrier';
     let EnemyBattleShip = 'EnemyBattleShip';
@@ -159,12 +163,15 @@ function aiHorizontalPlacement(ship){
    
     
     }
-   
+
+    document.addEventListener('click', () => {
     placeShips(EnemyCarrier)
     setTimeout(placeShips(EnemyBattleShip),10)
     setTimeout(placeShips(EnemyCruiser),10)
     setTimeout(placeShips(EnemySubmarine),10)
     setTimeout(placeShips(EnemyDestroyer),10)
+})
+
 });
 export default placeShips
 
