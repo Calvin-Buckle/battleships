@@ -167,6 +167,18 @@ function aiHorizontalPlacement(ship){
 
 
    //reset the game
+   reset.addEventListener('click', () => {
+    let divs = enemyBoard.querySelectorAll('div')
+    divs.forEach(div => {
+        div.classList.remove('selected')
+        div.classList.remove('EnemyCarrier')
+        div.classList.remove('EnemySubmarine')
+        div.classList.remove('EnemyDestroyer')
+        div.classList.remove('EnemyCruiser')
+        div.classList.remove('EnemyBattleShip')
+    });})
+
+
 
    //start the game
     start.addEventListener('click', () => {
