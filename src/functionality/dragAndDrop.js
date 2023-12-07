@@ -10,6 +10,18 @@ document.addEventListener('gameboardReady', () => {
     let hoverAffectApplied;
 
     ship.forEach(ship => {
+        ship.addEventListener('click', () => {
+            if(ship.style.flexDirection !== 'column'){
+        ship.style.flexDirection = 'column';
+        }else{
+            ship.style.flexDirection = 'row';
+        };
+        })
+        
+    })
+
+    
+    ship.forEach(ship => {
         ship.addEventListener('dragstart', () => {
             
             console.log('dragging');
