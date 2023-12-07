@@ -19,12 +19,15 @@ document.addEventListener('gameboardReady', () => {
         })
         
     })
-
+    let shipOr;
     
     ship.forEach(ship => {
         ship.addEventListener('dragstart', () => {
             
             console.log('dragging');
+            if(ship.style.flexDirection === 'column'){
+               shipOr = 'column'
+            }
         });
     });
 
@@ -33,29 +36,53 @@ document.addEventListener('gameboardReady', () => {
     });
 
 
+   
     block.forEach(block => {
         block.addEventListener('dragover', (e) => {
             e.preventDefault();
             shipSize = shipList[shipId].size;
-
+            ship = shipList.shipId
             if (!hoverAffectApplied) {
                 let currentBlock = block;
+    
                 for (let i = 0; i < shipSize; i++) {
-                    currentBlock.classList.add('hovered');
-                    currentBlock = currentBlock.nextElementSibling;
+                    if (shipOr === 'column') { 
+                        for (let j = 0; j < 10; j++) {
+                            currentBlock = currentBlock.nextElementSibling;
+                        }
+                        currentBlock.classList.add('hovered');
+                    } else {
+                        currentBlock.classList.add('hovered');
+                        currentBlock = currentBlock.nextElementSibling;
+                    }
                 }
+    
                 hoverAffectApplied = true;
             }
         });
     });
+
+
+
+
+
+
+
 
     block.forEach(block => {
         block.addEventListener('dragleave', () => {
             hoverAffectApplied = false;
             let currentBlock = block;
             for (let i = 0; i < shipSize; i++) {
+                if(shipOr === 'column'){
+                    for(let j = 0; j < 10; j++){
                 currentBlock.classList.remove('hovered');
                 currentBlock = currentBlock.nextElementSibling;
+                    }
+                }else{
+                currentBlock.classList.remove('hovered');
+                currentBlock = currentBlock.nextElementSibling;
+            }
             }
         });
     });
@@ -75,3 +102,4 @@ document.addEventListener('gameboardReady', () => {
         });
     });
 });
+

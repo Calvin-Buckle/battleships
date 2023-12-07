@@ -68,11 +68,11 @@ function aiVerticalPlacement(ship){
     for (let i = 0; i < shipList[ship].size; i++) {
         if (currentEBlock.classList.contains('selected')) {
           isValid = false;
-            break; // Break out of the loop if a spot is selected
+            break;
         }
         if(!currentEBlock.nextElementSibling){
             isValid = false;
-                break; // Break out of the loop if there are no more siblings
+                break;
         }
         // check if next sibling exists
         for (let j = 0; j < 10; j++) {
@@ -81,7 +81,7 @@ function aiVerticalPlacement(ship){
                 isValid = true;
             } else {
                 isValid = false;
-                break; // Break out of the loop if there are no more siblings
+                break;
             }
         
         }
