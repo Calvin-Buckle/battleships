@@ -8,6 +8,10 @@ document.addEventListener('gameboardReady', () => {
     let shipId;
     let shipSize;
     let hoverAffectApplied;
+    let shipOr;
+
+
+
 
     ship.forEach(ship => {
         ship.addEventListener('click', () => {
@@ -19,7 +23,12 @@ document.addEventListener('gameboardReady', () => {
         })
         
     })
-    let shipOr;
+
+
+
+
+
+  
     
     ship.forEach(ship => {
         ship.addEventListener('dragstart', () => {
@@ -34,6 +43,8 @@ document.addEventListener('gameboardReady', () => {
     document.addEventListener('dragstart', (e) => {
         shipId = e.target.getAttribute('Id');
     });
+
+
 
 
    
@@ -86,6 +97,8 @@ document.addEventListener('gameboardReady', () => {
             }
         });
     });
+
+
 
     block.forEach(block => {
         block.addEventListener('drop', () => {

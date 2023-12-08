@@ -18,10 +18,13 @@ class Gameboard {
       let enemyDiv = document.createElement('div')
     playerBoard.appendChild(div)
     enemyBoard.appendChild(enemyDiv)
-    div.classList = 'block'
-
-    let zoneLoc = this.zoneName(i)
-    enemyDiv.classList = zoneLoc;
+    div.classList = 'block';
+    enemyDiv.classList = 'eBlock';
+    
+    let zoneLoc = this.zoneName(i);
+   
+    div.classList.add(zoneLoc);
+    enemyDiv.classList.add(zoneLoc);
     }
    }
 }

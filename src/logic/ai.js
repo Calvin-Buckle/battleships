@@ -189,6 +189,12 @@ function aiHorizontalPlacement(ship){
     setTimeout(placeShips(EnemyDestroyer),10)
 })
 
+
+
+
+
+
+
 });
 export default placeShips
 
