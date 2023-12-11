@@ -1,9 +1,10 @@
 class Ship{
-    constructor(size){
+    constructor(size,id){
         
         
         this.hits = []
         this.size = size
+        this.id = id
     }
 
  hit(index){
@@ -20,21 +21,12 @@ class Ship{
 
  isHit() {
     return this.hits.some(hit => this.position.includes(hit));
-  }}
+  }
 
 
-
-
-
-
-
-
-class Player{
- constructor(){
-    this.player = player;
-    this.enemy = enemy;
- }
 }
+
+
 
 
 

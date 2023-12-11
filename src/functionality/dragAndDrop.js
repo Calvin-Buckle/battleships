@@ -9,7 +9,7 @@ document.addEventListener('gameboardReady', () => {
     let shipSize;
     let hoverAffectApplied;
     let shipOr;
-
+    let shipName;
 
 
 
@@ -99,17 +99,23 @@ document.addEventListener('gameboardReady', () => {
     });
 
 
-
     block.forEach(block => {
         block.addEventListener('drop', () => {
             shipSize = shipList[shipId].size;
+            shipName = (shipList[shipId].id)
             console.log('dropped');
             console.log(shipSize);
-
+             
+            
+            // Access the id property on the specific ship instance
+           
+    
             let currentBlock = block;
             for (let i = 0; i < shipSize; i++) {
-                currentBlock.classList.add('selected')
-                currentBlock.classList.remove('hovered')
+
+                currentBlock.classList.add('selected');
+                currentBlock.classList.add(shipName)
+                currentBlock.classList.remove('hovered');
                 currentBlock = currentBlock.nextElementSibling;
             }
         });

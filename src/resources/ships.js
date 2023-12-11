@@ -2,15 +2,15 @@ import Ship from "../factories/shipFactory";
 
 let shipList = {
 //Player ships~
-'Carrier' : new Ship(5),
+'Carrier' : new Ship(5,'Carrier'),
 
-'BattleShip' : new Ship(4),
+'BattleShip' : new Ship(4,'BattleShip'),
 
-'Cruiser' : new Ship(3),
+'Cruiser' : new Ship(3,'Cruiser'),
 
-'Submarine' : new Ship(3),
+'Submarine' : new Ship(3,'Submarine'),
 
-'Destroyer' : new Ship(2),
+'Destroyer' : new Ship(2,'Destroyer'),
 
 //Enemy ships
  'EnemyCarrier'  : new Ship(5),
