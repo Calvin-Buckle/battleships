@@ -3,7 +3,7 @@ import Gameboard from './factories/gameBoardFactory'
 import shipList from './resources/ships'
 import dragAndDrop from './functionality/dragAndDrop';
 import placeShips from './logic/ai';
-import turns from './logic/turn';
+import turns from './logic/attackLogic';
 let game = new Gameboard
 
 
