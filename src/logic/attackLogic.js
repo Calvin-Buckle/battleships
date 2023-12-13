@@ -7,9 +7,13 @@ function turns() {
     let blocks = document.querySelectorAll('.block');
     let currentBlock;
     let currentEBlock;
-
+    let start = document.getElementById('start')
+   
     let pDestroyedShips = 0
     let eDestroyedShips = 0
+
+    
+
 
     let shipCounts = {
      Carrier : 0,
@@ -24,9 +28,82 @@ function turns() {
      EnemyDestroyer : 0, 
    
     }
-    
 
 
+
+    let aiTurn;
+
+
+
+
+
+
+
+    function aiAttack(currentBlock){
+        if (currentBlock.classList.contains('selected')) {
+            currentBlock.classList.add('hit');
+                hitTracker(currentBlock);
+            } else {
+                currentBlock.classList.add('missed');
+            }
+            aiTurn = false
+          
+            killHandler(shipCounts);
+        };
+
+
+       start.addEventListener('click', () => {
+      aiTurn = false;
+    })
+
+        function aiTrigger(){
+        function randomLoc(){
+            const location = Math.floor(Math.random() * (99 - 0 + 1)) + 0;
+            return location
+        }
+        let loc = randomLoc();
+        let currentBlock = playerBoard.firstElementChild;
+        for(let i = 0; i < loc; i++){
+          console.log(1)
+            currentBlock = currentBlock.nextElementSibling;
+        }
+        if(currentBlock.classList.contains('hit') || currentBlock.classList.contains('missed'))
+        {aiTrigger();
+        return;}
+        else{
+        aiAttack(currentBlock)
+    }
+    }
+        
+        if(aiTurn){
+            setTimeout(aiTrigger,1000)  
+        }
+         
+        eBlocks.forEach(eBlock => {
+            eBlock.addEventListener('click',() =>{
+            aiTurn = true;
+            aiTrigger()
+            })
+        })
+        
+      
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
 
 
     eBlocks.forEach(eBlock => {
@@ -45,21 +122,6 @@ function turns() {
         });
     });
 
-    blocks.forEach(block => {
-        block.addEventListener('click', () => {
-            if (block.classList.contains('selected')) {
-                block.classList.add('hit');
-                currentBlock = block;
-                hitTracker(currentBlock);
-            } else {
-                block.classList.add('missed');
-            }
-            //hier
-            killHandler(
-            shipCounts
-            );
-        });
-    });
 
     function hitTracker(currentBlock) {
      //Hier
@@ -180,5 +242,5 @@ document.addEventListener('gameboardReady', () => {
     turns();
 });
 
-export default turns;
+export default turns
 

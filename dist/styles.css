@@ -115,3 +115,11 @@ table { border-collapse: collapse; border-spacing: 0;}
 #enemyBoard .selected{
     background-color: red;
 }
+
+#playerBoard .missed, #enemyBoard .missed{
+    background-color: black;
+}
+
+#playerBoard .hit, #enemyBoard .hit{
+    background-color: orangered;
+}

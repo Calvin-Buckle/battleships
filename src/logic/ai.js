@@ -118,7 +118,7 @@ function aiHorizontalPlacement(ship){
 
     }else{
         aiHorizontalPlacement(ship)
-}
+    }
     }
 
 
@@ -196,6 +196,6 @@ function aiHorizontalPlacement(ship){
 
 
 });
-export default placeShips
-
+export default placeShips;
+ 
 
