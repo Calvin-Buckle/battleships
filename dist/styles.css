@@ -87,6 +87,7 @@ table { border-collapse: collapse; border-spacing: 0;}
     display: flex;
     flex-direction: row;
     background-color: white;
+    color: white;
     width: fit-content;
     height:22px;
     padding: 10px;

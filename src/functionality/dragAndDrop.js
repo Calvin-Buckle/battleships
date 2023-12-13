@@ -33,7 +33,7 @@ document.addEventListener('gameboardReady', () => {
     ship.forEach(ship => {
         ship.addEventListener('dragstart', () => {
             
-            console.log('dragging');
+           
             if(ship.style.flexDirection === 'column'){
                shipOr = 'column'
             }
@@ -42,6 +42,7 @@ document.addEventListener('gameboardReady', () => {
 
     document.addEventListener('dragstart', (e) => {
         shipId = e.target.getAttribute('Id');
+        
     });
 
 
@@ -99,26 +100,38 @@ document.addEventListener('gameboardReady', () => {
     });
 
 
+
     block.forEach(block => {
         block.addEventListener('drop', () => {
-            shipSize = shipList[shipId].size;
-            shipName = (shipList[shipId].id)
-            console.log('dropped');
-            console.log(shipSize);
-             
-            
-            // Access the id property on the specific ship instance
-           
+            shipSize = shipList[shipId].size;        
+            if (shipList[shipId]) {
+                shipName = shipList[shipId].id;
+               
     
-            let currentBlock = block;
-            for (let i = 0; i < shipSize; i++) {
-
-                currentBlock.classList.add('selected');
-                currentBlock.classList.add(shipName)
-                currentBlock.classList.remove('hovered');
-                currentBlock = currentBlock.nextElementSibling;
+                let currentBlock = block;
+                for (let i = 0; i < shipSize; i++) {
+                    currentBlock.classList.add('selected');
+                    currentBlock.classList.add(shipName);
+                    currentBlock.classList.remove('hovered');
+                    currentBlock = currentBlock.nextElementSibling;
+                }
+                const draggedShip = document.getElementById(shipName);
+                if (draggedShip) {
+                    draggedShip.style.display = 'none';
+                }
+            } else {
+                console.error('Invalid shipId:', shipId);
             }
         });
     });
+
+    
+    document.getElementById('reset').addEventListener('click', () => {
+        document.querySelectorAll('.ship').forEach(ship => {
+            ship.style.display = 'flex';
+        });
+    })
+
+
 });
 
