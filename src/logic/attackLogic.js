@@ -78,13 +78,27 @@ function turns() {
         if(aiTurn){
             setTimeout(aiTrigger,1000)  
         }
-         
+    
         eBlocks.forEach(eBlock => {
             eBlock.addEventListener('click',() =>{
+                if(aiTurn){return;}else{
+                if(eBlock.classList.contains('hit') || eBlock.classList.contains('missed')){return;}
+                else{
             aiTurn = true;
-            aiTrigger()
-            })
-        })
+           setTimeout(aiTrigger, 750)}
+           if (eBlock.classList.contains('selected')) {
+            eBlock.classList.add('hit');
+            currentBlock = eBlock;
+            hitTracker(currentBlock);
+        } else {
+            eBlock.classList.add('missed');
+        }
+        //hier
+        killHandler(
+            shipCounts
+        );
+    }})
+    })
         
       
      
@@ -106,21 +120,6 @@ function turns() {
         
 
 
-    eBlocks.forEach(eBlock => {
-        eBlock.addEventListener('click', () => {
-            if (eBlock.classList.contains('selected')) {
-                eBlock.classList.add('hit');
-                currentBlock = eBlock;
-                hitTracker(currentBlock);
-            } else {
-                eBlock.classList.add('missed');
-            }
-            //hier
-            killHandler(
-                shipCounts
-            );
-        });
-    });
 
 
     function hitTracker(currentBlock) {
