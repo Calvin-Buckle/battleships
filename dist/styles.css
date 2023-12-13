@@ -112,9 +112,7 @@ table { border-collapse: collapse; border-spacing: 0;}
     align-items: center;
 }
 
-#enemyBoard .selected{
-    background-color: red;
-}
+
 
 #playerBoard .missed, #enemyBoard .missed{
     background-color: black;
@@ -122,4 +120,8 @@ table { border-collapse: collapse; border-spacing: 0;}
 
 #playerBoard .hit, #enemyBoard .hit{
     background-color: orangered;
+}
+
+#playerBoard .Destroyed, #enemyBoard .Destroyed{
+background-color: red;
 }

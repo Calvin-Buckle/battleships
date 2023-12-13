@@ -14,7 +14,8 @@ document.addEventListener('gameboardReady', () => {
     let EnemyCruiser = 'EnemyCruiser';
     let EnemySubmarine = 'EnemySubmarine';
     let EnemyDestroyer = 'EnemyDestroyer';
-  
+    let playerBoard = document.getElementById('playerBoard')
+
 
 
     function randomAxis(){
@@ -168,9 +169,25 @@ function aiHorizontalPlacement(ship){
 
    //reset the game
    reset.addEventListener('click', () => {
+    let blocks = playerBoard.querySelectorAll('.block')
+    blocks.forEach(block => {
+        block.classList.remove('selected')
+        block.classList.remove('missed')
+        block.classList.remove('hit')
+        block.classList.remove('Destroyed')
+        block.classList.remove('Carrier')
+        block.classList.remove('Submarine')
+        block.classList.remove('Destroyer')
+        block.classList.remove('Cruiser')
+        block.classList.remove('BattleShip')
+    })
+
     let divs = enemyBoard.querySelectorAll('div')
     divs.forEach(div => {
         div.classList.remove('selected')
+        div.classList.remove('missed')
+        div.classList.remove('hit')
+        div.classList.remove('Destroyed')
         div.classList.remove('EnemyCarrier')
         div.classList.remove('EnemySubmarine')
         div.classList.remove('EnemyDestroyer')
